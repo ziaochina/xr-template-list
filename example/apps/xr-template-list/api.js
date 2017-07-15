@@ -7,18 +7,18 @@ export function getMeta() {
 			name: 'header',
 			component: 'Layout',
 			className: 'header',
-			children:[{
-				name:'left',
+			children: [{
+				name: 'left',
 				component: 'Layout',
 				className: 'header-left',
-				children:[{
-					name:'search',
-					component:'Input'
-				},{
-					name:'refresh',
-					component:'Button',
+				children: [{
+					name: 'search',
+					component: 'Input'
+				}, {
+					name: 'refresh',
+					component: 'Button',
 					type: 'softly',
-					icon:'reload'
+					icon: 'reload'
 				}]
 			}]
 		}, {
@@ -31,14 +31,14 @@ export function getMeta() {
 				headerHeight: 35,
 				rowHeight: 35,
 				enableSequence: true,
-				startSequence:'{{(data.pagination.current-1)*data.pagination.pageSize + 1}}',
+				startSequence: '{{(data.pagination.current-1)*data.pagination.pageSize + 1}}',
 				rowsCount: "{{$getListRowsCount()}}",
 				columns: [{
 					name: 'select',
 					component: 'DataGrid.Column',
 					columnKey: 'select',
 					width: 40,
-					fixed:true,
+					fixed: true,
 					header: {
 						name: 'header',
 						component: 'DataGrid.Cell',
@@ -64,7 +64,7 @@ export function getMeta() {
 					name: 'oprate',
 					component: 'DataGrid.Column',
 					columnKey: 'oprate',
-					fixed:true,
+					fixed: true,
 					width: 30,
 					header: {
 						name: 'header',
@@ -105,19 +105,19 @@ export function getMeta() {
 					},
 				}]
 			}]
-		},{
+		}, {
 			name: 'footer',
-			className:'footer',
+			className: 'footer',
 			component: 'Layout',
-			children:[{
-				name:'pagination',
-				component:'Pagination',
-				showSizeChanger:true,
-				pageSize:'{{data.pagination.pageSize}}',
-				current:'{{data.pagination.current}}',
-				total:'{{data.pagination.total}}',
-				onChange:'{{$pageChanged}}',
-				onShowSizeChange:'{{$pageChanged}}'
+			children: [{
+				name: 'pagination',
+				component: 'Pagination',
+				showSizeChanger: true,
+				pageSize: '{{data.pagination.pageSize}}',
+				current: '{{data.pagination.current}}',
+				total: '{{data.pagination.total}}',
+				onChange: '{{$pageChanged}}',
+				onShowSizeChange: '{{$pageChanged}}'
 			}]
 		}]
 	}

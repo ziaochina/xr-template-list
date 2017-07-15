@@ -18,30 +18,30 @@ class action {
         this.load(pagination.current, pagination.pageSize)
     }
 
-    load = async (current, pageSize)=>{
+    load = async (current, pageSize) => {
         debugger
         const response = await this.config.fetchList(current, pageSize, {})
         this.injections.reduce('load', response)
     }
 
-    getListRowsCount = () =>{
+    getListRowsCount = () => {
         return this.metaAction.gf('data.list').size
     }
 
 
-    isSelectAll = () =>{
+    isSelectAll = () => {
         const lst = this.metaAction.gf('data.list')
-        if(!lst || lst.size == 0)
+        if (!lst || lst.size == 0)
             return false
 
-        return lst.every(o=>o.get('selected'))
+        return lst.every(o => o.get('selected'))
     }
 
-    selectAll =(e) =>{
+    selectAll = (e) => {
         this.injections.reduce('selectAll', e.target.checked)
     }
 
-    pageChanged = (current, pageSize) =>{
+    pageChanged = (current, pageSize) => {
         this.load(current, pageSize)
     }
 

@@ -8,19 +8,19 @@ class reducer {
     }
 
     init = (state, option) => {
-        const data = { 
+        const data = {
             data: {
-                list:[],
-                pagination:{current: 1, total: 0, pageSize: 20},
-                filter:{},
-                other:{}
-            } 
+                list: [],
+                pagination: { current: 1, total: 0, pageSize: 20 },
+                filter: {},
+                other: {}
+            }
         }
 
         return this.metaReducer.init(state, data)
     }
 
-    load = (state, response) =>{
+    load = (state, response) => {
         state = this.metaReducer.sf(state, 'data.list', fromJS(response.list))
         state = this.metaReducer.sf(state, 'data.pagination', fromJS(response.pagination))
         return state
@@ -29,10 +29,10 @@ class reducer {
     selectAll = (state, checked) => {
         var lst = this.metaReducer.gf(state, 'data.list')
 
-        if(!lst || lst.size == 0)
+        if (!lst || lst.size == 0)
             return state
 
-        for(let i=0; i<lst.size; i++){
+        for (let i = 0; i < lst.size; i++) {
             state = this.metaReducer.sf(state, `data.list.${i}.selected`, checked)
         }
 
